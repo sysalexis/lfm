@@ -1,0 +1,7 @@
+*.py[cod]
+*.egg-ignore
+*.egg-info
+build/
+dist/
+env/
+site/
