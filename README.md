@@ -7,7 +7,7 @@
 
 ## Hi There!
 
-You're probably wondering what lfm is good for. Well, suppose you woke up one day and suddenly realized you needed a Lambda function for [AES encryption](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard). You *could* roll your own solution, but ain't nobody got time for that. So you do a quick GitHub search and -- lo and behold -- there's [this beauty](https://github.com/willyg302/aws-lambda-aes).
+You're probably wondering what lfm is good for. Well, suppose you wake up one day and suddenly realize you need a Lambda function for [AES encryption](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard). You *could* roll your own solution, but ain't nobody got time for that. So you do a quick GitHub search and -- lo and behold -- there's [this beauty](https://github.com/willyg302/aws-lambda-aes).
 
 Normally you'd have to clone the repo, install its dependencies, zip it up, and deploy it yourself. But with lfm, you can just do:
 
@@ -46,7 +46,7 @@ ignore:
 
 `config` holds all that junk you're used to passing to `upload-function`, so you don't have to type it out any more. Note that any config you provide to `lfm deploy` will override the values in this file.
 
-`install` is a single command for installing dependencies before zipping up the function. In this example, we want to install some production Node modules, but you could just as well use `make` and the like.
+`install` is a single command for installing dependencies before zipping up the function. In this example, we want to install some Node modules so we use `npm install --production`, but you can just as well shell out to `make` for more heavy lifting.
 
 `ignore` is a list of paths that will not be added to the zip file.
 
