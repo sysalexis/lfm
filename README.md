@@ -81,6 +81,12 @@ exports.handler = function(event, context) {
 
 Save this in `hello-world.js` and you're good to go! It's probably worth mentioning that since you have just a single file, you won't be doing any installing or ignoring of files or anything like that. So the only stuff that goes in the YAML is what you'd pass to `upload-function`.
 
+## Okay, I'm Sold, Gimme!
+
+lfm is still in early development, so don't expect to be finding it on PyPI. You can grab it with a quick `pip install git+https://github.com/willyg302/lfm.git@master`.
+
+If, like Rust, lfm decides to [eat your laundry](https://github.com/rust-lang/rust-www/blob/f6dbd32bd9f8a450de09a816d08a5338c13d7fa5/index.html#L63), please file an issue.
+
 ## I Want Moar
 
 Don't fret, we hear you! There are currently plans for the following features:
