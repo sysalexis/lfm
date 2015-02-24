@@ -24,6 +24,12 @@ $ lfm deploy my-sweet-function/ --role execution_role_arn
 $ lfm deploy --role execution_role_arn  # Will deploy working directory
 ```
 
+Only got a single file? No problemo:
+
+```bash
+$ lfm deploy awesome-sauce.js --role execution_role_arn
+```
+
 In addition, you can override any of the usual config (see `lfm deploy -h` for options).
 
 ## So What's the Secret?
@@ -52,11 +58,33 @@ ignore:
 
 **NOTE**: You don't *need* a `.lambda.yml` to be able to use lfm; it's just easier that way. Without the config file, you'll have to provide all the required config as command-line arguments.
 
+### But I Only Have One File...
+
+Cool beans. Just stick that config in your YAML front matter:
+
+```js
+---
+FunctionName: hello-world
+Handler: hello-world.handler
+Mode: event
+Runtime: nodejs
+Description: My awesome Hello World function!
+---
+console.log('Loading event');
+exports.handler = function(event, context) {
+	console.log("value1 = " + event.key1);
+	console.log("value2 = " + event.key2);
+	console.log("value3 = " + event.key3);
+	context.done(null, "Hello World");
+};
+```
+
+Save this in `hello-world.js` and you're good to go! It's probably worth mentioning that since you have just a single file, you won't be doing any installing or ignoring of files or anything like that. So the only stuff that goes in the YAML is what you'd pass to `upload-function`.
+
 ## I Want Moar
 
 Don't fret, we hear you! There are currently plans for the following features:
 
-- **Single Files**: Currently you must provide a directory or Git repository, but it'd be nice to be able to deploy single files as well
 - **GitHub Gists**: Give a Gist URL, get a running Lambda function
 - **Webhooks**: A bit far-fetched, but wouldn't it be cool to `git push` and kick off a Lambda deploy?
 
